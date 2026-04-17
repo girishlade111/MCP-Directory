@@ -82,7 +82,7 @@ MCP-Directory is a **curated, open-source resource** that:
 - 🌐 **Provides an interactive web app** (`index.html`) — search, filter by category, copy `npx` commands in one click  
 - 📚 **Documents per-IDE setup** for Claude Code, Gemini CLI, Qwen Code, Cursor, VS Code, and Google Antigravity  
 - ⚙️ **Includes ready-to-paste config snippets** for every major AI tool  
-- 🖥 **Ships a CLI extensions guide** (`cli_mcp_extensions_guide.html`) with MCP server cards, VS Code extension recommendations, and config examples
+- 🖥 **Includes a CLI extensions guide** (`cli_mcp_extensions_guide.html`) — an embeddable widget with MCP server cards, VS Code extension recommendations, and config examples
 
 ---
 
@@ -232,7 +232,7 @@ gemini mcp remove <name>
 
 ### Qwen Code CLI
 
-Qwen Code iterates through `mcpServers` in its `settings.json`.
+**Qwen Code** (the dedicated Qwen coding CLI) supports MCP natively — it iterates through `mcpServers` in its `settings.json` just like Gemini CLI.
 
 **Add a server via CLI:**
 ```bash
@@ -256,7 +256,7 @@ qwen mcp add --http web-fetch http://localhost:8000/mcp
 }
 ```
 
-> ⚠️ **Note:** Qwen CLI (OpenAI-compatible API) doesn't natively support MCP. Use it through Claude Code or Gemini CLI, or configure it as a custom provider with `OPENAI_API_BASE` override.
+> ⚠️ **Important distinction:** The **Qwen Code CLI** (above) has native MCP support. If you are instead using Qwen's model through a generic **OpenAI-compatible API endpoint** (`OPENAI_API_BASE` override), that mode does **not** natively support MCP — in that case, route your requests through Claude Code or Gemini CLI, which do support MCP, and configure the Qwen-compatible model as a custom provider inside those tools.
 
 ---
 
