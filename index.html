@@ -262,22 +262,43 @@
             renderGrid();
         });
 
-        // 4. Copy to Clipboard
+        // 4. Copy to Clipboard (FIXED for iFrame restrictions)
         window.copyCommand = function(text, btnElement) {
-            navigator.clipboard.writeText(text).then(() => {
-                const originalText = btnElement.innerHTML;
-                btnElement.innerHTML = '✅ Copied!';
-                btnElement.classList.add('bg-green-600', 'text-white');
-                btnElement.classList.remove('bg-stone-200', 'text-stone-800');
-                
-                setTimeout(() => {
-                    btnElement.innerHTML = originalText;
-                    btnElement.classList.remove('bg-green-600', 'text-white');
-                    btnElement.classList.add('bg-stone-200', 'text-stone-800');
-                }, 2000);
-            }).catch(err => {
+            // Create a temporary textarea element
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            
+            // Avoid scrolling to bottom
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                // Fallback using execCommand due to iFrame permission policy restrictions
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    const originalText = btnElement.innerHTML;
+                    btnElement.innerHTML = '✅ Copied!';
+                    btnElement.classList.add('bg-green-600', 'text-white');
+                    btnElement.classList.remove('bg-stone-200', 'text-stone-800');
+                    
+                    setTimeout(() => {
+                        btnElement.innerHTML = originalText;
+                        btnElement.classList.remove('bg-green-600', 'text-white');
+                        btnElement.classList.add('bg-stone-200', 'text-stone-800');
+                    }, 2000);
+                } else {
+                    console.error('Copy command was unsuccessful');
+                }
+            } catch (err) {
                 console.error('Copy failed', err);
-            });
+            }
+
+            document.body.removeChild(textArea);
         };
 
         // 5. Render Grid Cards
