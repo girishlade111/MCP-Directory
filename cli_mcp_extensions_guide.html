@@ -1,0 +1,321 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.wrap { padding: 1rem 0; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab { padding: 6px 14px; border-radius: 20px; border: 1px solid var(--color-border-secondary); font-size: 12px; font-weight: 500; cursor: pointer; background: var(--color-background-secondary); color: var(--color-text-secondary); transition: all .15s; }
+.tab.active { background: var(--color-text-primary); color: var(--color-background-primary); border-color: transparent; }
+.section { margin-bottom: 10px; }
+.sec-title { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; padding-left: 2px; }
+.card { background: var(--color-background-secondary); border: 1px solid var(--color-border-tertiary); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
+.card-head { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+.badge { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 20px; flex-shrink: 0; margin-top: 2px; }
+.badge.mcp { background: #CECBF6; color: #3C3489; }
+.badge.ext { background: #9FE1CB; color: #085041; }
+.badge.both { background: #FAC775; color: #633806; }
+.card-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+.card-desc { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 8px; line-height: 1.5; }
+.cmd { background: var(--color-background-tertiary); border: 1px solid var(--color-border-tertiary); border-radius: 6px; padding: 6px 10px; font-family: var(--font-mono); font-size: 11px; color: var(--color-text-secondary); display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
+.cmd span { flex: 1; overflow-x: auto; white-space: nowrap; }
+.copy-btn { background: none; border: 1px solid var(--color-border-secondary); border-radius: 5px; padding: 2px 7px; font-size: 10px; cursor: pointer; color: var(--color-text-secondary); flex-shrink: 0; }
+.copy-btn:hover { background: var(--color-background-primary); }
+.link { font-size: 11px; color: var(--color-text-secondary); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+.link:hover { color: var(--color-text-primary); }
+.compat { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
+.tag { font-size: 10px; padding: 2px 7px; border-radius: 10px; background: var(--color-background-tertiary); color: var(--color-text-tertiary); border: 1px solid var(--color-border-tertiary); }
+.note { font-size: 11px; color: var(--color-text-tertiary); background: var(--color-background-tertiary); border-radius: 8px; padding: 10px 12px; margin-top: 12px; line-height: 1.6; border: 1px solid var(--color-border-tertiary); }
+</style>
+<div class="wrap">
+  <h2 style="sr-only">CLI Extensions and MCP Servers Guide</h2>
+  <div class="tabs" id="tabs">
+    <button class="tab active" onclick="show('mcp')">MCP Servers</button>
+    <button class="tab" onclick="show('ext')">Extensions</button>
+    <button class="tab" onclick="show('config')">Config Examples</button>
+  </div>
+
+  <!-- MCP SERVERS -->
+  <div id="mcp-panel">
+    <div class="section">
+      <div class="sec-title">Core / File System</div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="badge mcp">MCP</span>
+          <span class="card-name">Filesystem MCP</span>
+        </div>
+        <div class="card-desc">Local file read/write/create access. Most important — Claude/Gemini can directly edit your project files.</div>
+        <div class="cmd"><span>npx -y @modelcontextprotocol/server-filesystem /your/project/path</span><button class="copy-btn" onclick="cp(this,'npx -y @modelcontextprotocol/server-filesystem /your/project/path')">copy</button></div>
+        <div class="compat"><span class="tag">Claude Code</span><span class="tag">Gemini CLI</span></div>
+        <a class="link" href="https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem" target="_blank">→ github.com/modelcontextprotocol/servers</a>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="badge mcp">MCP</span>
+          <span class="card-name">Memory MCP</span>
+        </div>
+        <div class="card-desc">Persistent knowledge graph across sessions. Claude/Gemini remember entities, relations, context between chats.</div>
+        <div class="cmd"><span>npx -y @modelcontextprotocol/server-memory</span><button class="copy-btn" onclick="cp(this,'npx -y @modelcontextprotocol/server-memory')">copy</button></div>
+        <div class="compat"><span class="tag">Claude Code</span><span class="tag">Gemini CLI</span></div>
+        <a class="link" href="https://github.com/modelcontextprotocol/servers/tree/main/src/memory" target="_blank">→ github.com/modelcontextprotocol/servers</a>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="badge mcp">MCP</span>
+          <span class="card-name">Sequential Thinking MCP</span>
+        </div>
+        <div class="card-desc">Forces structured step-by-step reasoning. Great for complex architecture decisions and debugging.</div>
+        <div class="cmd"><span>npx -y @modelcontextprotocol/server-sequential-thinking</span><button class="copy-btn" onclick="cp(this,'npx -y @modelcontextprotocol/server-sequential-thinking')">copy</button></div>
+        <div class="compat"><span class="tag">Claude Code</span><span class="tag">Gemini CLI</span></div>
+        <a class="link" href="https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking" target="_blank">→ github.com/modelcontextprotocol/servers</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Dev Tools</div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="badge mcp">MCP</span>
+          <span class="card-name">GitHub MCP</span>
+        </div>
+        <div class="card-desc">Create issues, PRs, read repos, list branches — all from within Claude Code or Gemini CLI.</div>
+        <div class="cmd"><span>npx -y @modelcontextprotocol/server-github</span><button class="copy-btn" onclick="cp(this,'npx -y @modelcontextprotocol/server-github')">copy</button></div>
+        <div class="cmd" style="margin-top:-2px"><span>GITHUB_PERSONAL_ACCESS_TOKEN=your_token</span><button class="copy-btn" onclick="cp(this,'GITHUB_PERSONAL_ACCESS_TOKEN=your_token')">copy</button></div>
+        <div class="compat"><span class="tag">Claude Code</span><span class="tag">Gemini CLI</span></div>
+        <a class="link" href="https://github.com/modelcontextprotocol/servers/tree/main/src/github" target="_blank">→ github.com/modelcontextprotocol/servers</a>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="badge mcp">MCP</span>
+          <span class="card-name">Postgres MCP</span>
+        </div>
+        <div class="card-desc">Query your Postgres/Supabase DB directly. Perfect for LadeStack — schema inspection, data checks inline.</div>
+        <div class="cmd"><span>npx -y @modelcontextprotocol/server-postgres postgresql://user:pass@host:5432/db</span><button class="copy-btn" onclick="cp(this,'npx -y @modelcontextprotocol/server-postgres postgresql://user:pass@host:5432/db')">copy</button></div>
+        <div class="compat"><span class="tag">Claude Code</span><span class="tag">Gemini CLI</span></div>
+        <a class="link" href="https://github.com/modelcontextprotocol/servers/tree/main/src/postgres" target="_blank">→ github.com/modelcontextprotocol/servers</a>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="badge mcp">MCP</span>
+          <span class="card-name">Context7 MCP</span>
+        </div>
+        <div class="card-desc">Pulls live, version-accurate docs for Next.js, shadcn, Tailwind, etc. No more hallucinated APIs.</div>
+        <div class="cmd"><span>npx -y @upstash/context7-mcp@latest</span><button class="copy-btn" onclick="cp(this,'npx -y @upstash/context7-mcp@latest')">copy</button></div>
+        <div class="compat"><span class="tag">Claude Code</span><span class="tag">Gemini CLI</span></div>
+        <a class="link" href="https://github.com/upstash/context7" target="_blank">→ github.com/upstash/context7</a>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="badge mcp">MCP</span>
+          <span class="card-name">Puppeteer MCP</span>
+        </div>
+        <div class="card-desc">Browser automation — screenshot, click, scrape from CLI. Useful for testing your LadeStack UIs.</div>
+        <div class="cmd"><span>npx -y @modelcontextprotocol/server-puppeteer</span><button class="copy-btn" onclick="cp(this,'npx -y @modelcontextprotocol/server-puppeteer')">copy</button></div>
+        <div class="compat"><span class="tag">Claude Code</span><span class="tag">Gemini CLI</span></div>
+        <a class="link" href="https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer" target="_blank">→ github.com/modelcontextprotocol/servers</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Search & Web</div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="badge mcp">MCP</span>
+          <span class="card-name">Brave Search MCP</span>
+        </div>
+        <div class="card-desc">Web search from CLI. Free tier available — get API key from brave.com/search/api.</div>
+        <div class="cmd"><span>npx -y @modelcontextprotocol/server-brave-search</span><button class="copy-btn" onclick="cp(this,'npx -y @modelcontextprotocol/server-brave-search')">copy</button></div>
+        <div class="cmd" style="margin-top:-2px"><span>BRAVE_API_KEY=your_brave_key</span><button class="copy-btn" onclick="cp(this,'BRAVE_API_KEY=your_brave_key')">copy</button></div>
+        <div class="compat"><span class="tag">Claude Code</span><span class="tag">Gemini CLI</span></div>
+        <a class="link" href="https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search" target="_blank">→ github.com/modelcontextprotocol/servers</a>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="badge mcp">MCP</span>
+          <span class="card-name">Fetch MCP</span>
+        </div>
+        <div class="card-desc">Fetch any URL, convert to markdown. Read documentation pages, APIs, or competitor sites inline.</div>
+        <div class="cmd"><span>npx -y @modelcontextprotocol/server-fetch</span><button class="copy-btn" onclick="cp(this,'npx -y @modelcontextprotocol/server-fetch')">copy</button></div>
+        <div class="compat"><span class="tag">Claude Code</span><span class="tag">Gemini CLI</span></div>
+        <a class="link" href="https://github.com/modelcontextprotocol/servers/tree/main/src/fetch" target="_blank">→ github.com/modelcontextprotocol/servers</a>
+      </div>
+    </div>
+
+    <div class="note">💡 <strong>Qwen CLI note:</strong> Qwen CLI (via OpenAI-compatible API) doesn't natively support MCP yet. Use it through <strong>Claude Code</strong> or <strong>Gemini CLI</strong> for MCP features. For Qwen model, configure it as custom provider in supported CLI tools via OPENAI_API_BASE override.</div>
+  </div>
+
+  <!-- EXTENSIONS -->
+  <div id="ext-panel" style="display:none">
+    <div class="section">
+      <div class="sec-title">Claude Code</div>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge ext">EXT</span>
+          <span class="card-name">Claude Code (VS Code Extension)</span>
+        </div>
+        <div class="card-desc">Full Claude Code inside code-server/VS Code. Inline chat, file edits, terminal access. Perfect for your DigitalOcean setup.</div>
+        <div class="cmd"><span>ext install anthropic.claude-code</span><button class="copy-btn" onclick="cp(this,'ext install anthropic.claude-code')">copy</button></div>
+        <div class="compat"><span class="tag">code-server</span><span class="tag">VS Code</span></div>
+        <a class="link" href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code" target="_blank">→ VS Code Marketplace</a>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge ext">EXT</span>
+          <span class="card-name">Claude Code (JetBrains Plugin)</span>
+        </div>
+        <div class="card-desc">For IntelliJ/WebStorm users. Same Claude Code features inside JetBrains IDEs.</div>
+        <div class="cmd"><span>Settings → Plugins → search "Claude Code"</span><button class="copy-btn" onclick="cp(this,'Settings → Plugins → search Claude Code')">copy</button></div>
+        <a class="link" href="https://plugins.jetbrains.com/plugin/24613-claude-code" target="_blank">→ JetBrains Marketplace</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">VS Code / code-server Extensions (Must Have)</div>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge ext">EXT</span>
+          <span class="card-name">ESLint + Prettier</span>
+        </div>
+        <div class="card-desc">Auto-format + lint on save. Claude Code output quality improves when code is consistently formatted.</div>
+        <div class="cmd"><span>ext install dbaeumer.vscode-eslint esbenp.prettier-vscode</span><button class="copy-btn" onclick="cp(this,'ext install dbaeumer.vscode-eslint esbenp.prettier-vscode')">copy</button></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge ext">EXT</span>
+          <span class="card-name">GitLens</span>
+        </div>
+        <div class="card-desc">See git blame, history, diffs inline. Pairs well with Claude Code's git integration.</div>
+        <div class="cmd"><span>ext install eamodio.gitlens</span><button class="copy-btn" onclick="cp(this,'ext install eamodio.gitlens')">copy</button></div>
+        <a class="link" href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens" target="_blank">→ VS Code Marketplace</a>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge ext">EXT</span>
+          <span class="card-name">Error Lens</span>
+        </div>
+        <div class="card-desc">Shows errors/warnings inline on the same line. Claude Code can see these via terminal and fix faster.</div>
+        <div class="cmd"><span>ext install usernamehw.errorlens</span><button class="copy-btn" onclick="cp(this,'ext install usernamehw.errorlens')">copy</button></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge ext">EXT</span>
+          <span class="card-name">Tailwind CSS IntelliSense</span>
+        </div>
+        <div class="card-desc">Autocomplete for Tailwind classes. Essential for your Next.js + shadcn projects.</div>
+        <div class="cmd"><span>ext install bradlc.vscode-tailwindcss</span><button class="copy-btn" onclick="cp(this,'ext install bradlc.vscode-tailwindcss')">copy</button></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="badge ext">EXT</span>
+          <span class="card-name">REST Client</span>
+        </div>
+        <div class="card-desc">Test APIs directly from .http files. Useful alongside your LadeStack API testing tool.</div>
+        <div class="cmd"><span>ext install humao.rest-client</span><button class="copy-btn" onclick="cp(this,'ext install humao.rest-client')">copy</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIG -->
+  <div id="config-panel" style="display:none">
+    <div class="section">
+      <div class="sec-title">Claude Code — claude.json / .mcp.json</div>
+      <div class="card">
+        <div class="card-desc" style="margin-bottom:10px">Add this to <code style="font-family:var(--font-mono);font-size:11px">~/.claude/claude.json</code> or project-level <code style="font-family:var(--font-mono);font-size:11px">.mcp.json</code></div>
+        <div class="cmd" style="flex-direction:column;align-items:flex-start;gap:4px">
+<span style="white-space:pre;line-height:1.7">{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y","@modelcontextprotocol/server-filesystem","/home/user/projects"]
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y","@modelcontextprotocol/server-memory"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y","@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_TOKEN" }
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y","@modelcontextprotocol/server-postgres","postgresql://user:pass@localhost:5432/ladestack"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y","@upstash/context7-mcp@latest"]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y","@modelcontextprotocol/server-fetch"]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y","@modelcontextprotocol/server-sequential-thinking"]
+    }
+  }
+}</span>
+<button class="copy-btn" style="align-self:flex-end" onclick="cp(this,`{\n  \"mcpServers\": {\n    \"filesystem\": { \"command\": \"npx\", \"args\": [\"-y\",\"@modelcontextprotocol/server-filesystem\",\"/home/user/projects\"] },\n    \"memory\": { \"command\": \"npx\", \"args\": [\"-y\",\"@modelcontextprotocol/server-memory\"] },\n    \"github\": { \"command\": \"npx\", \"args\": [\"-y\",\"@modelcontextprotocol/server-github\"], \"env\": { \"GITHUB_PERSONAL_ACCESS_TOKEN\": \"YOUR_TOKEN\" } },\n    \"postgres\": { \"command\": \"npx\", \"args\": [\"-y\",\"@modelcontextprotocol/server-postgres\",\"postgresql://user:pass@localhost:5432/ladestack\"] },\n    \"context7\": { \"command\": \"npx\", \"args\": [\"-y\",\"@upstash/context7-mcp@latest\"] },\n    \"fetch\": { \"command\": \"npx\", \"args\": [\"-y\",\"@modelcontextprotocol/server-fetch\"] },\n    \"sequential-thinking\": { \"command\": \"npx\", \"args\": [\"-y\",\"@modelcontextprotocol/server-sequential-thinking\"] }\n  }\n}`)">copy all</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Gemini CLI — settings.json</div>
+      <div class="card">
+        <div class="card-desc" style="margin-bottom:10px">Add to <code style="font-family:var(--font-mono);font-size:11px">~/.gemini/settings.json</code></div>
+        <div class="cmd" style="flex-direction:column;align-items:flex-start;gap:4px">
+<span style="white-space:pre;line-height:1.7">{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y","@modelcontextprotocol/server-filesystem","/home/user/projects"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y","@upstash/context7-mcp@latest"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y","@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_TOKEN" }
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y","@modelcontextprotocol/server-fetch"]
+    }
+  }
+}</span>
+        </div>
+        <a class="link" href="https://github.com/google-gemini/gemini-cli/blob/main/docs/mcp-servers.md" target="_blank">→ Gemini CLI MCP docs</a>
+      </div>
+    </div>
+
+    <div class="note">⚡ <strong>Droplet tip:</strong> Node.js v18+ required. Run <code style="font-family:var(--font-mono);font-size:11px">node -v</code> first. If lower, upgrade via <code style="font-family:var(--font-mono);font-size:11px">nvm install 20</code>. Also use <code style="font-family:var(--font-mono);font-size:11px">claude mcp list</code> to verify servers loaded correctly in Claude Code.</div>
+  </div>
+</div>
+
+<script>
+function show(tab) {
+  ['mcp','ext','config'].forEach(t => {
+    document.getElementById(t+'-panel').style.display = t === tab ? '' : 'none';
+  });
+  document.querySelectorAll('.tab').forEach((b,i) => {
+    b.classList.toggle('active', ['mcp','ext','config'][i] === tab);
+  });
+}
+function cp(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'done!';
+    setTimeout(() => btn.textContent = 'copy', 1500);
+  });
+}
+</script>
