@@ -472,6 +472,7 @@ Antigravity has native MCP support through its **Agent Manager** panel.
 | **Pinecone** | Managed vector database queries | `npx -y mcp-pinecone` | [GitHub](https://github.com/community/mcp-pinecone) |
 | **Weaviate** | Semantic vector search | `npx -y mcp-weaviate` | [GitHub](https://github.com/community/mcp-weaviate) |
 | **Cloudinary** | Image upload, transformation, CDN delivery | `npx -y @cursor/cloudinary-mcp` | [Cursor Marketplace](https://cursor.com/marketplace) |
+| **SigRank** | AI operator token-efficiency leaderboard + yield cascade metrics | `npx -y sigrank` | [GitHub](https://github.com/SunrisesIllNeverSee/sigrank-mcp) |
 
 ---
 
