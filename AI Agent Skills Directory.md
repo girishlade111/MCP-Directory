@@ -76,12 +76,17 @@ When agents use the tools listed above, they execute **Skills**. Here is an exha
 *   **`legacy-refactor`**: Traverse directory, locate deprecated syntax, and iteratively rewrite code while maintaining tests.
 *   **`bug-hunter`**: Trace execution logs, identify stack traces, propose patches, and write regression tests.
 *   **`doc-generator`**: Parse codebase structure and output `README.md`, `CONTRIBUTING.md`, and inline docstrings.
+*   **`api-designer`**: Generate OpenAPI specifications based on natural language requirements.
+*   **`ui-component-builder`**: Convert Figma designs or text descriptions into accessible React/Vue components.
+*   **`db-migration-manager`**: Analyze schema changes and generate safe Prisma/Alembic migration scripts.
 
 ### ☁️ DevOps & Infrastructure
 *   **`dockerize-app`**: Analyze dependencies and automatically generate optimized, multi-stage `Dockerfile` and `docker-compose.yml` configs.
 *   **`k8s-manifest-builder`**: Generate standard Kubernetes deployments, ingress routes, and Helm charts.
 *   **`log-analyzer`**: Fetch logs via API (AWS CloudWatch, Datadog), parse for anomalies, and summarize root causes.
 *   **`terraform-planner`**: Read architecture requirements and draft HCL (Terraform) scripts for AWS/Azure/GCP.
+*   **`incident-responder`**: Ping failing services, scale up instances via AWS CLI, and alert teams via Slack/PagerDuty.
+*   **`cost-optimizer`**: Analyze AWS billing logs and suggest right-sizing for underutilized EC2/RDS instances.
 
 ### 📊 Data Analysis & Data Engineering
 *   **`sql-query-generator`**: Read database schema, take user natural language request, and output complex JOINs/Aggregations.
@@ -89,17 +94,54 @@ When agents use the tools listed above, they execute **Skills**. Here is an exha
 *   **`data-cleaner`**: Impute missing data, normalize date formats, and strip special characters from datasets.
 *   **`viz-creator`**: Write Python (matplotlib/seaborn) or React components to generate charts based on provided data.
 *   **`web-scraper-pipeline`**: Navigate to URL, extract DOM text, convert to markdown, and store in vector DB.
+*   **`etl-pipeline-builder`**: Generate Airflow or Prefect DAGs to move and transform data between databases.
 
 ### 🛡️ Security & Compliance
 *   **`threat-discovery`**: Run static analysis on codebases looking for OWASP Top 10 vulnerabilities.
 *   **`secret-scanner`**: Search git history and active files for hardcoded API keys, JWTs, and passwords.
 *   **`compliance-checker`**: Audit configuration files against GDPR, SOC2, or HIPAA requirements.
+*   **`phishing-analyzer`**: Parse email headers and URLs in sandboxed environments to detect malicious intent.
+*   **`iam-policy-generator`**: Generate least-privilege AWS IAM JSON policies based on application needs.
 
 ### ✍️ Content & Marketing
 *   **`seo-optimizer`**: Read markdown/HTML, inject LSI keywords, generate meta descriptions, and check readability scores.
 *   **`brand-voice-enforcer`**: Review draft text against a style guide (e.g., "professional but conversational") and rewrite.
 *   **`technical-writer`**: Take raw JSON/API responses and format them into readable Swagger/OpenAPI docs or blog tutorials.
 *   **`social-media-scheduler`**: Draft thread content, format for Twitter/LinkedIn, and interact with scheduling APIs.
+*   **`email-campaign-manager`**: Generate A/B test variations for cold outreach and format for Mailchimp/HubSpot.
+
+### 💰 Finance & Accounting (NEW)
+*   **`invoice-processor`**: Read PDFs/images via OCR, extract line items, and format as JSON for QuickBooks/Xero.
+*   **`expense-categorizer`**: Analyze bank statement CSVs and automatically tag rows (e.g., "Software", "Travel") based on ML models.
+*   **`financial-forecaster`**: Take historical revenue data and generate predictive ARIMA models in Python.
+*   **`tax-compliance-auditor`**: Review transaction logs against local tax rules to flag missing VAT/GST deductions.
+
+### 🤝 Customer Support & Sales (NEW)
+*   **`ticket-triage`**: Read incoming Zendesk/Jira tickets, assign priority levels, and route to the correct engineering department.
+*   **`crm-updater`**: Extract action items from meeting transcripts and update Salesforce/HubSpot deal stages automatically.
+*   **`refund-processor`**: Verify Stripe transaction IDs and execute partial/full refunds based on company policy rules.
+*   **`sentiment-analyzer`**: Scan daily support emails and generate a mood/sentiment report for the customer success team.
+
+### 🧑‍💼 Human Resources & Recruiting (NEW)
+*   **`resume-screener`**: Parse PDFs of candidate resumes and score them against the skills required in a job description.
+*   **`interview-scheduler`**: Read Google Calendar availability across multiple team members and draft scheduling emails.
+*   **`onboarding-coordinator`**: Automatically generate Slack accounts, email addresses, and Jira access for new hires.
+*   **`policy-qna-bot`**: Answer employee questions by vector-searching the company employee handbook (RAG).
+
+### 🎓 Research & Academia (NEW)
+*   **`arxiv-literature-reviewer`**: Search ArXiv for a topic, download the top 10 PDFs, and generate a synthesized literature review.
+*   **`citation-formatter`**: Take raw URLs and output properly formatted APA, MLA, or Chicago style bibliography entries.
+*   **`hypothesis-tester`**: Write R or Python pandas scripts to perform ANOVA or T-tests on provided experimental data.
+*   **`grant-proposal-drafter`**: Format scientific findings into structured grant applications adhering to NSF/NIH guidelines.
+
+### ⚡ Productivity & Personal Assistance (NEW)
+*   **`email-inbox-zero`**: Categorize unread Gmail messages, draft replies for routine questions, and archive newsletters.
+*   **`travel-itinerary-planner`**: Query flight/hotel APIs, check weather data, and generate a day-by-day markdown schedule.
+*   **`meeting-summarizer`**: Take raw `.vtt` or `.txt` transcripts and extract key decisions, action items, and owners.
+
+### 🏠 IoT & Smart Home Automation (NEW)
+*   **`home-assistant-routine-builder`**: Generate YAML automations for Home Assistant (e.g., "if motion detected after 10 PM, turn on lights to 20%").
+*   **`energy-monitor`**: Read smart plug wattage data and suggest routines to reduce vampire power draw.
 
 ---
 
