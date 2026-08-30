@@ -361,6 +361,7 @@ Antigravity has native MCP support through its **Agent Manager** panel.
 | **GitLab** | GitLab repos, merge requests, CI/CD pipelines | `npx -y @modelcontextprotocol/server-gitlab` | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/gitlab) |
 | **Git** | Local git operations: commit, diff, log, branch | `npx -y @modelcontextprotocol/server-git` | [GitHub](https://github.com/modelcontextprotocol/servers/tree/main/src/git) |
 | **Docker** | Manage containers, images, networks, volumes | `npx -y mcp-docker-server` | [GitHub](https://github.com/docker/mcp) |
+| **SandBase Harness MCP Bridge** | Self-hosted bridge for persistent agent sessions, sandboxed turns, approvals, artifacts, audit trails, and replay | `docker run -i --rm -e MANAGED_AGENTS_URL -e MANAGED_AGENTS_API_KEY ghcr.io/sandbaseai/sandbase-harness-mcp:0.3.8` | [GitHub](https://github.com/sandbaseai/sandbase-harness) |
 | **Kubernetes** | Read cluster state, deployments, pod management | `npx -y mcp-kubernetes` | [GitHub](https://github.com/community/mcp-k8s) |
 | **NPM** | Search packages, fetch dependency info | `npx -y mcp-npm-server` | [GitHub](https://github.com/community/mcp-npm) |
 | **ESLint** | Run linting; find and fix code style errors | `npx -y mcp-eslint` | [GitHub](https://github.com/eslint/mcp) |
