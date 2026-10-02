@@ -126,6 +126,7 @@
         // --- DATA STORAGE ---
         // Generating a comprehensive list of ~100 MCP servers
         const mcpData = [
+            { name: "VideoGen", category: "AI & Machine Learning", desc: "Official video, image, voiceover, music, and avatar generation. Requires VIDEOGEN_API_KEY. Source: https://github.com/video-gen/videogen-mcp", cmd: "npx -y @videogen/mcp", url: "https://videogen.io/videogen-mcp" },
             // === File System & Core ===
             { name: "Filesystem", category: "Core & OS", desc: "Provides secure access to read and write local files and directories.", cmd: "npx -y @modelcontextprotocol/server-filesystem /path/to/directory", url: "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem" },
             { name: "Memory", category: "Core & OS", desc: "Knowledge graph memory for AI to remember entities and facts across conversations.", cmd: "npx -y @modelcontextprotocol/server-memory", url: "https://github.com/modelcontextprotocol/servers/tree/main/src/memory" },
