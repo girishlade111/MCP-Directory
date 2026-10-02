@@ -466,6 +466,7 @@ Antigravity has native MCP support through its **Agent Manager** panel.
 
 | Server | Description | Install Command | Source |
 |--------|-------------|-----------------|--------|
+| **[VideoGen](https://videogen.io/videogen-mcp)** | Official video, image, voiceover, music, and avatar generation; requires `VIDEOGEN_API_KEY` | `npx -y @videogen/mcp` | [GitHub](https://github.com/video-gen/videogen-mcp) |
 | **Hugging Face** | Inference API, model hub, datasets | `npx -y mcp-huggingface` | [GitHub](https://github.com/community/mcp-hf) |
 | **ElevenLabs** | Text-to-speech voice synthesis | `pip install elevenlabs-mcp && elevenlabs-mcp --apikey <key>` | [GitHub](https://github.com/eleven-labs/elevenlabs-mcp) |
 | **Chroma** | Vector database for embedding search | `npx -y mcp-chroma` | [GitHub](https://github.com/community/mcp-chroma) |
