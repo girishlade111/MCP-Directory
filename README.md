@@ -715,3 +715,8 @@ This directory is released under the **MIT License** — use it freely, contribu
 *Connecting your AI tools to the world, one MCP server at a time.*
 
 </div>
+---
+
+## 👤 Author
+
+**Built by Girish Lade** — [https://ladestack.in](https://ladestack.in)
