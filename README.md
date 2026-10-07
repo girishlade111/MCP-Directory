@@ -452,6 +452,7 @@ Antigravity has native MCP support through its **Agent Manager** panel.
 
 | Server | Description | Install Command | Source |
 |--------|-------------|-----------------|--------|
+| **Statsnet** | Background check any company in the world: registration, executives, courts and finances. | Remote MCP `https://statsnet.co/mcp` | [GitHub](https://github.com/usenetstate/statsnet-mcp) |
 | **Stripe** | Payments, subscriptions, customers | `npx -y mcp-stripe` | [GitHub](https://github.com/stripe/mcp) |
 | **CoinMarketCap** | Real-time crypto prices and market data | `npx -y mcp-crypto` | [GitHub](https://github.com/community/mcp-crypto) |
 | **Google Analytics** | GA4 traffic, events, performance data | `npx -y mcp-ga4` | [GitHub](https://github.com/community/mcp-ga4) |
